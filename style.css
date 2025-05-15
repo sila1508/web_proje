@@ -23,3 +23,7 @@ main {
     object-fit: cover;
     border-radius: 8px;
 }
+.card-img-top {
+  height: 180px;
+  object-fit: contain;
+}
