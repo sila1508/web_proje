@@ -27,16 +27,26 @@
            </div>
     </nav>
 
-    <main>
+    <main class="container mt-5">
         <h2>Giriş Yap</h2>
         <form name="loginForm" action="login.php" method="post" onsubmit="return formDenetle()">
-            <label for="kullaniciAdi" class="form-label">Kullanıcı Adı(Öğrenci E-Posta'nız): </label> <br>
-            <input type="text" name="kullaniciAdi" id="kullaniciAdi"><br><br> 
+            <div class="col-md-7">
+                <label for="kullaniciAdi" class="form-label">Kullanıcı Adı(Öğrenci E-Posta'nız): </label> <br>
+                <input type="text" name="kullaniciAdi" id="kullaniciAdi" class="form-control"><br><br>
+            </div> 
+            
+            <div class="col-md-7">
+                <p>
+                <label for="sifre" class="form-label">Şifreniz: </label> <br>
+                <input type="password" name="sifre" id="sifre" class="form-control">
+                <span id="togglePassword" class="toggle-password">&#128065;</span>
+                </p>
+                
+            </div>
 
-            <label for="sifre" class="form-label">Şifreniz: </label> <br>
-            <input type="text" name="sifre" id="sifre"><br><br> 
-
-            <input type="submit" value="Giriş Yap">
+            <div class="col-md-7"> 
+                <input type="submit" value="Giriş Yap" class="btn girisButon">
+            </div>
         </form>
     </main>
 
@@ -44,5 +54,30 @@
         <p>&copy; 2025 Sıla Yılmaz | Web Teknolojileri Projesi</p>
         <p><a href="mailto:sila.yilmaz8@ogr.sakarya.edu.tr.com" class="text-white">sila.yilmaz8@ogr.sakarya.edu.tr.com</a></p>
     </footer>
+
+    <script>
+        const sifreInput=document.getElementById("sifre");
+        const togglePassword=document.getElementById("togglePassword");
+
+           togglePassword.addEventListener("click",function(){
+            const type=sifre.getAttribute("type")==="password" ? "type" : "password";
+            sifreInput.setAttribute("type",type);
+        });
+        function formDenetle(){
+            const kullaniciAdi=document.getElementById("kullaniciAdi").value.trim();
+            const sifre=document.getElementById("sifre").value.trim();
+            const kullaniciAdiKontrol= /^[a-zA-Z0-9._%+-]+@sakarya\.edu\.tr$/;
+
+            if(!kullaniciAdi||!sifre){
+                alert("Kullanıcı adı ve şifre boş bırakılamaz.")
+                return false;
+            }
+            if(!kullaniciAdiKontrol.test(kullaniciAdi)){
+                alert("Lütfen sakarya.edu.tr uzantılı bir email adresi giriniz.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>
