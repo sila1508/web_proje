@@ -5,7 +5,7 @@ body{
     display: flex;
     flex-direction: column;
 }
-h1,h2{
+h1,h2,h3{
     color:	#BA55D3;
 }
 footer{
