@@ -31,6 +31,26 @@ main {
   height: 180px;
   object-fit: contain;
 }
+.jsButon{
+    background-color: #800080;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 15px;
+}
+.jsButon:hover{
+    background-color: #5e005e;
+    color: white;
+}
+.vueButon{
+    background-color: #800080;
+    color: white;
+    padding: 10px 20px;
+
+}
+.vueButon:hover{
+    background-color: #5e005e;
+    color: white;
+}
 .girisButon{
   background-color: #800080;
   color: white;
